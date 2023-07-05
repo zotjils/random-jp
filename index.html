@@ -68,8 +68,8 @@
         var sample3Content = responses[2];
 
         var sample1Lines = sample1Content.split("\n");
-        var sample2Lines = sample2Content.split("\n");
-        var sample3Lines = sample3Content.split("\n");
+        var sample2Lines = sample2Content.split(".");
+        var sample3Lines = sample3Content.split(".");
 
         var rowNumber = Math.floor(Math.random() * sample1Lines.length);
 
@@ -77,7 +77,9 @@
         var selectedSample2Line = sample2Lines[rowNumber];
         var selectedSample3Line = sample3Lines[rowNumber];
 
-        document.getElementById("output").textContent = selectedSample1Line + " " + selectedSample2Line + " " + selectedSample3Line;
+        var outputText = selectedSample1Line + " " + selectedSample2Line + " " + selectedSample3Line;
+
+        document.getElementById("output").textContent = outputText;
       })
       .catch(function(error) {
         console.error("データの読み込みエラー:", error);
