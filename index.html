@@ -51,7 +51,7 @@
           var rowNumber = Math.floor(Math.random() * (lines.length - 1)) + 1;
 
           // 選択した行の内容を取得
-          var selectedLine = lines[rowNumber];
+          var selectedLine = lines[rowNumber - 1];
 
           // 結果を表示
           document.getElementById("output").textContent = selectedLine;
