@@ -33,50 +33,49 @@
   </style>
   <script>
     function generateRandomText() {
-      // 各データファイルのURLを指定する
-      var sample1FileUrl = "words_list.txt";
+      // sample.txtのURLを指定する
+      var sampleFileUrl = "words_list.txt";
+
+      // sample2.txtのURLを指定する
       var sample2FileUrl = "data1.txt";
-      var sample3FileUrl = "data2.txt";
 
-      // 各データファイルの読み込み
-      var sample1Request = new XMLHttpRequest();
-      sample1Request.open("GET", sample1FileUrl, true);
-      sample1Request.onreadystatechange = function() {
-        if (sample1Request.readyState === 4 && sample1Request.status === 200) {
-          var sample1Content = sample1Request.responseText;
+      // sample.txtの読み込み
+      var sampleRequest = new XMLHttpRequest();
+      sampleRequest.open("GET", sampleFileUrl, true);
+      sampleRequest.onreadystatechange = function() {
+        if (sampleRequest.readyState === 4 && sampleRequest.status === 200) {
+          // sample.txtの読み込みが完了したら、処理を実行
+          var sampleContent = sampleRequest.responseText;
 
+          // sample2.txtの読み込み
           var sample2Request = new XMLHttpRequest();
           sample2Request.open("GET", sample2FileUrl, true);
           sample2Request.onreadystatechange = function() {
             if (sample2Request.readyState === 4 && sample2Request.status === 200) {
+              // sample2.txtの読み込みが完了したら、処理を実行
               var sample2Content = sample2Request.responseText;
 
-              var sample3Request = new XMLHttpRequest();
-              sample3Request.open("GET", sample3FileUrl, true);
-              sample3Request.onreadystatechange = function() {
-                if (sample3Request.readyState === 4 && sample3Request.status === 200) {
-                  var sample3Content = sample3Request.responseText;
+              // sample.txtの内容を改行ごとに分割して配列に格納
+              var sampleLines = sampleContent.split("\n");
 
-                  var sample1Lines = sample1Content.split("\n");
-                  var sample2Lines = sample2Content.split("\n");
-                  var sample3Lines = sample3Content.split("\n");
+              // sample2.txtの内容を改行ごとに分割して配列に格納
+              var sample2Lines = sample2Content.split("\n");
 
-                  var rowNumber = Math.floor(Math.random() * sample1Lines.length);
+              // ランダムな行番号を生成
+              var rowNumber = Math.floor(Math.random() * sampleLines.length);
 
-                  var selectedSample1Line = sample1Lines[rowNumber];
-                  var selectedSample2Line = sample2Lines[rowNumber];
-                  var selectedSample3Line = sample3Lines[rowNumber];
+              // 選択した行の内容を取得
+              var selectedSampleLine = sampleLines[rowNumber];
+              var selectedSample2Line = sample2Lines[rowNumber];
 
-                  document.getElementById("output").innerHTML = selectedSample1Line + "<br>" + selectedSample2Line + "<br>" + selectedSample3Line;
-                }
-              };
-              sample3Request.send();
+              // 結果を表示
+              document.getElementById("output").innerHTML = selectedSampleLine + "<br>" + selectedSample2Line;
             }
           };
           sample2Request.send();
         }
       };
-      sample1Request.send();
+      sampleRequest.send();
     }
   </script>
 </head>
