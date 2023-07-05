@@ -38,52 +38,45 @@
       var sample2FileUrl = "data1.txt";
       var sample3FileUrl = "data2.txt";
 
-      // データの読み込みを行う関数
-      function loadData(fileUrl) {
-        return new Promise(function(resolve, reject) {
-          var request = new XMLHttpRequest();
-          request.open("GET", fileUrl, true);
-          request.onreadystatechange = function() {
-            if (request.readyState === 4) {
-              if (request.status === 200) {
-                resolve(request.responseText);
-              } else {
-                reject(Error(request.statusText));
-              }
+      // 各データファイルの読み込み
+      var sample1Request = new XMLHttpRequest();
+      sample1Request.open("GET", sample1FileUrl, true);
+      sample1Request.onreadystatechange = function() {
+        if (sample1Request.readyState === 4 && sample1Request.status === 200) {
+          var sample1Content = sample1Request.responseText;
+
+          var sample2Request = new XMLHttpRequest();
+          sample2Request.open("GET", sample2FileUrl, true);
+          sample2Request.onreadystatechange = function() {
+            if (sample2Request.readyState === 4 && sample2Request.status === 200) {
+              var sample2Content = sample2Request.responseText;
+
+              var sample3Request = new XMLHttpRequest();
+              sample3Request.open("GET", sample3FileUrl, true);
+              sample3Request.onreadystatechange = function() {
+                if (sample3Request.readyState === 4 && sample3Request.status === 200) {
+                  var sample3Content = sample3Request.responseText;
+
+                  var sample1Lines = sample1Content.split("\n");
+                  var sample2Lines = sample2Content.split("\n");
+                  var sample3Lines = sample3Content.split("\n");
+
+                  var rowNumber = Math.floor(Math.random() * sample1Lines.length);
+
+                  var selectedSample1Line = sample1Lines[rowNumber];
+                  var selectedSample2Line = sample2Lines[rowNumber];
+                  var selectedSample3Line = sample3Lines[rowNumber];
+
+                  document.getElementById("output").innerHTML = selectedSample1Line + "<br>" + selectedSample2Line + "<br>" + selectedSample3Line;
+                }
+              };
+              sample3Request.send();
             }
           };
-          request.send();
-        });
-      }
-
-      // 各データファイルの読み込み
-      Promise.all([
-        loadData(sample1FileUrl),
-        loadData(sample2FileUrl),
-        loadData(sample3FileUrl)
-      ])
-      .then(function(responses) {
-        var sample1Content = responses[0];
-        var sample2Content = responses[1];
-        var sample3Content = responses[2];
-
-        var sample1Lines = sample1Content.split("\n");
-        var sample2Lines = sample2Content.split(".");
-        var sample3Lines = sample3Content.split(".");
-
-        var rowNumber = Math.floor(Math.random() * sample1Lines.length);
-
-        var selectedSample1Line = sample1Lines[rowNumber];
-        var selectedSample2Line = sample2Lines[rowNumber];
-        var selectedSample3Line = sample3Lines[rowNumber];
-
-        var outputText = selectedSample1Line + " " + selectedSample2Line + " " + selectedSample3Line;
-
-        document.getElementById("output").textContent = outputText;
-      })
-      .catch(function(error) {
-        console.error("データの読み込みエラー:", error);
-      });
+          sample2Request.send();
+        }
+      };
+      sample1Request.send();
     }
   </script>
 </head>
