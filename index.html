@@ -33,49 +33,55 @@
   </style>
   <script>
     function generateRandomText() {
-      // sample.txtのURLを指定する
-      var sampleFileUrl = "words_list.txt";
-
-      // sample2.txtのURLを指定する
+      // 各データファイルのURLを指定する
+      var sample1FileUrl = "words_list.txt";
       var sample2FileUrl = "data1.txt";
+      var sample3FileUrl = "data2.txt";
 
-      // sample.txtの読み込み
-      var sampleRequest = new XMLHttpRequest();
-      sampleRequest.open("GET", sampleFileUrl, true);
-      sampleRequest.onreadystatechange = function() {
-        if (sampleRequest.readyState === 4 && sampleRequest.status === 200) {
-          // sample.txtの読み込みが完了したら、処理を実行
-          var sampleContent = sampleRequest.responseText;
-
-          // sample2.txtの読み込み
-          var sample2Request = new XMLHttpRequest();
-          sample2Request.open("GET", sample2FileUrl, true);
-          sample2Request.onreadystatechange = function() {
-            if (sample2Request.readyState === 4 && sample2Request.status === 200) {
-              // sample2.txtの読み込みが完了したら、処理を実行
-              var sample2Content = sample2Request.responseText;
-
-              // sample.txtの内容を改行ごとに分割して配列に格納
-              var sampleLines = sampleContent.split("\n");
-
-              // sample2.txtの内容を改行ごとに分割して配列に格納
-              var sample2Lines = sample2Content.split("\n");
-
-              // ランダムな行番号を生成
-              var rowNumber = Math.floor(Math.random() * sampleLines.length);
-
-              // 選択した行の内容を取得
-              var selectedSampleLine = sampleLines[rowNumber];
-              var selectedSample2Line = sample2Lines[rowNumber];
-
-              // 結果を表示
-              document.getElementById("output").innerHTML = selectedSampleLine + "<br>" + selectedSample2Line;
+      // データの読み込みを行う関数
+      function loadData(fileUrl) {
+        return new Promise(function(resolve, reject) {
+          var request = new XMLHttpRequest();
+          request.open("GET", fileUrl, true);
+          request.onreadystatechange = function() {
+            if (request.readyState === 4) {
+              if (request.status === 200) {
+                resolve(request.responseText);
+              } else {
+                reject(Error(request.statusText));
+              }
             }
           };
-          sample2Request.send();
-        }
-      };
-      sampleRequest.send();
+          request.send();
+        });
+      }
+
+      // 各データファイルの読み込み
+      Promise.all([
+        loadData(sample1FileUrl),
+        loadData(sample2FileUrl),
+        loadData(sample3FileUrl)
+      ])
+      .then(function(responses) {
+        var sample1Content = responses[0];
+        var sample2Content = responses[1];
+        var sample3Content = responses[2];
+
+        var sample1Lines = sample1Content.split("\n");
+        var sample2Lines = sample2Content.split("\n");
+        var sample3Lines = sample3Content.split("\n");
+
+        var rowNumber = Math.floor(Math.random() * sample1Lines.length);
+
+        var selectedSample1Line = sample1Lines[rowNumber];
+        var selectedSample2Line = sample2Lines[rowNumber];
+        var selectedSample3Line = sample3Lines[rowNumber];
+
+        document.getElementById("output").textContent = selectedSample1Line + " " + selectedSample2Line + " " + selectedSample3Line;
+      })
+      .catch(function(error) {
+        console.error("データの読み込みエラー:", error);
+      });
     }
   </script>
 </head>
