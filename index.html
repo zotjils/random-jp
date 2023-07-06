@@ -61,7 +61,8 @@
                   var sample2Lines = sample2Content.split("\n");
                   var sample3Lines = sample3Content.split("\n");
 
-                  var rowNumber = Math.floor(Math.random() * sample1Lines.length);
+                  var maxLines = Math.min(sample1Lines.length, sample2Lines.length, sample3Lines.length);
+                  var rowNumber = Math.floor(Math.random() * maxLines);
 
                   var selectedSample1Line = sample1Lines[rowNumber];
                   var selectedSample2Line = sample2Lines[rowNumber];
