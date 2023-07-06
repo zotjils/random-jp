@@ -68,7 +68,7 @@
                   var selectedSample2Line = sample2Lines[rowNumber];
                   var selectedSample3Line = sample3Lines[rowNumber];
 
-                  document.getElementById("output").innerHTML = selectedSample1Line + "<br>" + selectedSample2Line + "<br>" + selectedSample3Line;
+                  document.getElementById("output").innerHTML = selectedSample1Line
                 }
               };
               sample3Request.send();
@@ -84,7 +84,7 @@
 <body>
   <div class="container">
     <h1>A</h1>
-    <p>説明がここに書かれています</p>
+    <p>説明がここに書かれていますa</p>
     <button onclick="generateRandomText()">生成</button>
     <div id="output"></div>
   </div>
