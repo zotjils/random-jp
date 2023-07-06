@@ -61,13 +61,14 @@
                   var sample2Lines = sample2Content.split("\n");
                   var sample3Lines = sample3Content.split("\n");
 
-                  var rowNumber = Math.floor(Math.random() * sample1Lines.length);
+                  var rowNumber = Math.floor(Math.random() * (sample1Lines.length - 1)) + 1;
+
 
                   var selectedSample1Line = sample1Lines[rowNumber];
                   var selectedSample2Line = sample2Lines[rowNumber];
                   var selectedSample3Line = sample3Lines[rowNumber];
 
-                  document.getElementById("output").textContent = selectedSample1Line + "<br>" + selectedSample2Line + "<br>" + selectedSample3Line;
+                  document.getElementById("output").innerHTML = selectedSample1Line + "<br>" + selectedSample2Line + "<br>" + selectedSample3Line;
                 }
               };
               sample3Request.send();
