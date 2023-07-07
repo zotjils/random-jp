@@ -1,0 +1,395 @@
+@charset "UTF-8";
+body {
+	font-family: source-sans-pro;
+	background-color: #ffffff;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+	font-weight: 200;
+}
+.container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 1000px;
+	background-color: #ffffff;
+}
+header {
+	width: 100%;
+	height: 5%;
+	background-color: #ffffff;
+	border-bottom: 1px solid #ffffff;
+}
+.logo {
+	color: #011c40;
+	font-weight: bold;
+	text-align: undefined;
+	width: 100%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 25px;
+	letter-spacing: 4px;
+}
+
+.word {
+	color: #ffffff;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 50px;
+	margin-left: 0px;
+	letter-spacing: 3px;
+	font-size: 40px;
+}
+.wrapper {
+	display: flex;
+	height: 80px;
+	padding-top: 40px;
+	font-family: "Poppins", sans-serif;
+	justify-content: center;
+	padding-right: 40px;
+}
+  
+  .wrapper .icon {
+	position: relative;
+	background: #fff;
+	border-radius: 50%;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+	position: absolute;
+	top: 0;
+	font-size: 1px;
+	background: #fff;
+	color: #fff;
+	padding: 5px 8px;
+	border-radius: 5px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+	position: absolute;
+	content: "";
+	height: 8px;
+	width: 8px;
+	background: #fff;
+	bottom: -3px;
+	left: 50%;
+	transform: translate(-50%) rotate(45deg);
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+	top: -45px;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1)
+	;
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+	background: #008eca;
+	color: #fff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+	background: #4285f4;
+	color: #fff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+	background: #646464;
+	color: #fff;
+  }
+  
+  
+.main {
+	background-color: #011c40;
+	padding-top: 130px;
+	padding-bottom: 50px;
+}
+
+.comment {
+	text-align: center;
+	color: #ffffff;
+	margin-top: 8px;
+	margin-bottom: 0px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+button {
+	margin:0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+	color: #ffffff;
+	background-color: #011c40;
+	border-style: none;
+	border-radius: 12px;
+	padding: 16px 24px;
+	transform: scale(1);
+	transition: 0.2s;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	border: 0.1px solid #ffffff;
+  }
+  
+  button:hover {
+	background-color: #ff3b3b;
+	box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+	border: 0.1px solid #ff3b3b;
+  }
+  
+  button:active {
+	transform: scale(0.95);
+	box-shadow: none;
+	border: 0.1px solid #ff3b3b;
+  }
+
+.stats {
+	color: #011c40;
+	margin-bottom: 5px;
+}
+.gallery {
+	clear: both;
+	display: inline-block;
+	width: 100%;
+	background-color: #FFFFFF;
+
+	padding-bottom: 35px;
+	margin-top: -5px;
+	margin-bottom: 0px;
+}
+.thumbnail {
+	width: 25%;
+	text-align: center;
+	float: left;
+	margin-top: 35px;
+}
+.gallery .thumbnail h4 {
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	color: #1e93c9;
+}
+.gallery .thumbnail p {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	color: #011c40;
+}
+.banner {
+	background-color:#1e93c9;
+	background-image: url(../images/parallax.png);
+	height: 400px;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.parallax {
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 82px;
+	letter-spacing: 2px;
+	margin-top: 0px;
+}
+.parallax_description {
+	width: 50%;
+	text-align: left;
+	font-weight: lighter;
+	color: #FFFFFF;
+	padding-top: 0px;
+	letter-spacing: 2px;
+	margin-top: 0px;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 500px;
+}
+
+a{
+	color:white;
+  }
+
+.copyright {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #ffffff;
+	color: #011c40;
+	text-transform: uppercase;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	border-top-width: 2px;
+}
+
+.text {
+	position: absolute;left: -9999px;
+}
+
+.hidden {
+	display: none;
+}
+
+/* Mobile */
+@media (max-width: 320px) {
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.thumbnail {
+	width: 100%;
+}
+
+.parallax {
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 50%;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	width: 100%;
+	font-size: 18px;
+}
+.parallax_description {
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0%;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	float: none;
+	width: 100%;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 500px;
+}
+
+}
+
+/* Small Tablets */
+@media (min-width: 321px)and (max-width: 767px) {
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.thumbnail {
+	width: 100%;
+}
+.parallax {
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 40%;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	width: 100%;
+	font-size: 18px;
+}
+.parallax_description {
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 30%;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	float: none;
+	width: 100%;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 500px;
+}
+.thumbnail {
+	width: 50%;
+}
+.parallax {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-top: 15%;
+}
+.parallax_description {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	padding-top: 30px;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 500px;
+}
+.banner {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.thumbnail {
+	width: 50%;
+}
+.banner {
+	margin-top: 0px;
+	padding-top: 0px;
+}
