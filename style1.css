@@ -377,11 +377,13 @@ a {
 	.button {
 		margin-top: 0px;
 		font-size: 17px;
-	}
-
+		background-color: #ff3b3b;
+		border: 0.1px solid #ff3b3b;
+		}
+	
 	.button:hover {
-		background-color: #011c40;
-		border: 0.1px solid #ffffff;
+		background-color: #ff3b3b;
+		border: 0.1px solid #ff3b3b;
 	}
 
 	.button:active {
