@@ -35,6 +35,8 @@ header {
 	margin-left: 25px;
 	letter-spacing: 4px;
 	user-select: none;
+	font-family: sans-serif;
+
 }
 
 .word {
@@ -49,6 +51,8 @@ header {
 	letter-spacing: 3px;
 	font-size: 40px;
 	padding-top: 120px;
+	font-family: sans-serif;
+
 
 }
 
@@ -303,6 +307,8 @@ a {
 	font-weight: lighter;
 	letter-spacing: 2px;
 	border-top-width: 2px;
+	font-family: sans-serif;
+
 }
 
 .text {
