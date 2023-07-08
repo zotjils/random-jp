@@ -1,12 +1,10 @@
 @charset "UTF-8";
 body {
-	font-family: source-sans-pro;
 	background-color: #ffffff;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
-	font-style: normal;
 	font-weight: 200;
 }
 .container {
